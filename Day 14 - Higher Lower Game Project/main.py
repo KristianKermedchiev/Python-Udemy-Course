@@ -20,6 +20,7 @@ print(logo)
 score = 0
 game_should_continue = True
 account_b = random.choice(data)
+try_again = True
 
 while game_should_continue:
 
@@ -45,6 +46,14 @@ while game_should_continue:
         score += 1
         print(f"You're right! Current score: {score}")
     else:
-        game_should_continue = False
         print(f"Sorry, that's wrong. Final score {score}")
+        score = 0
             
+        try_again_input = input(f"Do you want to try again? Press 'Y' or 'N'. ").lower()
+
+        if try_again_input == "n":
+            try_again == False
+            game_should_continue = False
+            exit()
+        elif try_again_input == "y":
+            game_should_continue = True
